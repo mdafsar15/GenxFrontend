@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="main-div" align="center">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Thankyou for registering!</mat-card-title>
+                <mat-icon matSuffix>emoji_people</mat-icon>
+            </mat-card-header>
+            <form (ngSubmit)="onSubmit()">
+                <div class="body-Content">
+                    <button mat-stroked-button color="primary" type="submit">
+            Click here to activate account!          </button>
+                </div>
+            </form>
+
+        </mat-card>
+
+    </div>
+</body>
+
+</html>

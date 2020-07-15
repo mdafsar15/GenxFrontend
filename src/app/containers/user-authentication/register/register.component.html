@@ -1,0 +1,75 @@
+<div class="limiter">
+    <div class ="container-login100" fxLayout="row"  fxLayoutAlign="center center">
+    <mat-card fxLayout="column" fxLayoutAlign="center center" class="example-card">
+        <mat-card-header>
+            <mat-card-title>
+               <h2> Register </h2>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> -->
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="username" type="text"  [formControl]="username"
+                                    [(ngModel)]="user.username" required pattern="^[A-Z][a-z]{2,}$" title="Userame start with caps">
+                                    <mat-icon matSuffix>person_outline</mat-icon>
+                                    <!-- <mat-error *ngIf="username.invalid ">{{getFirstNameErrorMessage()}}</mat-error> -->
+                                    
+                            </mat-form-field>
+    
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="name" type="text" [formControl]="name"
+                                    [(ngModel)]="user.name" required pattern="^[A-Z][a-z]{2,}$" title="Name start with caps">
+                                    <mat-icon matSuffix>person_outline</mat-icon>
+                                    <!-- <mat-error *ngIf="name.invalid ">{{getLastNameErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                  
+                   
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Email" type="Email"  [formControl]="email"
+                                    [(ngModel)]="user.email">
+                                    <mat-icon matSuffix>email</mat-icon>
+                                    <!-- <mat-error *ngIf="email.invalid ">{{getGmailErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                     
+    
+                 
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Password" type="Password" [type]="hide ? 'password':'text'" [formControl]="password"
+                                    [(ngModel)]="user.password"  required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" title="one uppercase one lowercase special character and number">
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    <!-- <mat-error *ngIf="password.invalid ">{{getPassErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+    
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Salary" type="Text" [formControl]="salary"
+                                    [(ngModel)]="user.salary">
+                                    <mat-icon matSuffix>Salary</mat-icon>
+                                    <!-- <mat-error *ngIf="salary.invalid ">{{getMobileNumErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                    
+                    
+                    
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Age" type="Text" [formControl]="age"
+                                    [(ngModel)]="user.age">
+                                    <mat-icon matSuffix>Age</mat-icon>
+                                    <!-- <mat-error *ngIf="age.invalid ">{{getMobileNumErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Role" type="Text" [formControl]="role"
+                                    [(ngModel)]="user.role">
+                                    <mat-icon matSuffix>Role</mat-icon>
+                                    <!-- <mat-error *ngIf="role.invalid ">{{getMobileNumErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                     
+                    <div class="example-button-row">
+                        <button mat-raised-button color="accent" type="submit" (click)="onSubmit()"> Register</button>
+                        <button mat-raised-button class="x" routerLink="/"> Cancel</button>
+                    </div>
+                
+            <!-- </form> -->
+        </mat-card-content>
+    </mat-card>
+    </div>
+    </div>

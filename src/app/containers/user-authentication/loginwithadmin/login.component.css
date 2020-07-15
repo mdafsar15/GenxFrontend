@@ -1,0 +1,54 @@
+
+  /* .imagepic{
+    background-image: url('../../../../home/administrator/Downloads/img3.jpeg');
+  } */
+
+    
+.login{
+  background-image: url('/assets/bg-01.jpg');
+  background-color: beige;   
+  margin: 0;
+  height: 90vh;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-flow: wrap;
+
+}
+.title{
+  color:#F7DC6F;
+  font-style: unset;
+  margin-left:1em;
+  font-size: 3em;
+}
+.label{
+  align-content: center;
+  width: 50vh;
+ }
+.content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width:50vh;
+   
+ }
+ .mat-card-title {
+  color: #F7DC6F;
+  display: block;
+  margin-bottom: 8px;
+}
+.mat-fab, .mat-flat-button, .mat-mini-fab, .mat-raised-button {
+  color: rgba(0,0,0,.87);
+  background-color: #F7DC6F;
+}
+.mat-card-header .mat-card-title {
+  font-size: 30px;
+}
+
+
+
+
+
+
