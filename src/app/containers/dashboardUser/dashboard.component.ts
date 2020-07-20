@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Headers, Http, HttpModule } from '@angular/http'; 
 import { AuthService } from 'src/app/services/auth.service';
+import { RegisterModel } from 'src/app/model/register-model';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardUser implements OnInit {
   displaytoken: string;
+  products :RegisterModel[];
   token: string = "";
   private getApiUrl = 'http://localhost:8080/api/user';
 
@@ -28,6 +30,14 @@ export class DashboardUser implements OnInit {
   }
   ngOnInit() {    
     this.displaytoken = this.authService.token;
+
+    this.authService.getUser()
+    .subscribe(
+      data => 
+      {
+        this.products = data;
+      }
+    )
    
   }
 
@@ -68,9 +78,6 @@ export class DashboardUser implements OnInit {
     }
     );
   }
-
-
-
 
 
   logout() {

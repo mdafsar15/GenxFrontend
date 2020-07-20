@@ -1,5 +1,41 @@
 
 <div class="login" >
-  <div>Welcome To Admin</div>
+  <div>Welcome To Admin
+  </div>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="getUser()"
+      
+    >
+      Get Data
+    </button><br>
+
+    <div class="signout-button"><br>
+      <button (click)="logout()" mat-stroked-button color="primary" >Signout</button>
+    </div><br>
+
+<div>
+  'Your Token : {{displaytoken}}'
+</div><br>
+<br><br>
+<ul>
+  <li *ngFor="let p of products">
+
+    '{{p.username}}  {{p.name}}  {{p.email}}  {{p.password}} {{p.salary}} {{p.age}} {{p.role}}'
+
+  </li>
+</ul>
+
+<ul>
+  
+</ul>
+
+
+
+</mat-card-actions>
+
 
 </div>

@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import { Headers, Http, HttpModule } from '@angular/http'; 
 
 import {TokenParams } from 'src/app/containers/Classes/TokenParams';
+import { RegisterModel } from '../model/register-model';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +19,7 @@ export class AuthService {
     constructor(private http: Http) {}
 
     private TokenAPI ='http://localhost:8080/api/auth/signin';
-    private getApiUrl = 'http://localhost:8080/api/user';
+    private getApiUrl = 'http://localhost:8080/getAllNotes';
     
 
     login(login:UserModel): Observable<TokenParams> {
@@ -29,17 +30,17 @@ export class AuthService {
         .map(res => res.json());
     }
 
-    // getUser(): Observable<[]>{
-    //     var HeadersForUserAPI = new Headers();
-    //     if(this.token){
-    //         HeadersForUserAPI.append('Authorization','Bearer ' + this.token);
-    //     }
-    //     return this.http.get(this.getApiUrl,{
-    //         headers: HeadersForUserAPI
-    //     }).map(
-    //         res => res.json());
+    getUser(): Observable<RegisterModel[]>{
+        var HeadersForUserAPI = new Headers();
+        if(this.token){
+            HeadersForUserAPI.append('Authorization','Bearer ' + this.token);
+            console.log("getUser Token",this.token);
+        }
+        return this.http.get(this.getApiUrl,{
+            headers: HeadersForUserAPI
+        }).map(
+            res => res.json());
 
-    //   }
-
+      }
 
 }

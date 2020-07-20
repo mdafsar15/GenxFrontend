@@ -20,7 +20,7 @@ import { DashboardAdmin } from "./containers/dashboardAdmin/dashboard.component"
 
 import {MatChipsModule} from '@angular/material/chips';
 import { DatePipe } from '@angular/common';
-import { MatDatepickerModule } from '@angular/material';
+import { MatDatepickerModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { AuthService } from './services/auth.service';
 import { Headers, Http, HttpModule } from '@angular/http'; 
 
@@ -52,7 +52,10 @@ import { Headers, Http, HttpModule } from '@angular/http';
     HttpClientModule,
     MatChipsModule,
     MatDatepickerModule,
-    HttpModule
+    HttpModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   entryComponents: [],
   providers: [DatePipe,AuthService],
