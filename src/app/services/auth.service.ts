@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { UserModel} from '../model/user-model'
+import { timeout } from 'rxjs/operators';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
@@ -19,8 +20,7 @@ export class AuthService {
     constructor(private http: Http) {}
 
     private TokenAPI ='http://localhost:8080/api/auth/signin';
-    private getApiUrl = 'http://localhost:8080/getAllNotes';
-    
+    private getApiUrl = 'http://localhost:8080/api/test/getAllNotes';
 
     login(login:UserModel): Observable<TokenParams> {
         var headersForTokenAPI = new Headers({'content-type':'application/json'});
@@ -40,7 +40,10 @@ export class AuthService {
             headers: HeadersForUserAPI
         }).map(
             res => res.json());
+      }
 
+      getToken(){
+          return localStorage.getItem('token');
       }
 
 }

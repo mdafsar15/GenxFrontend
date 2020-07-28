@@ -19,8 +19,8 @@ export class UserserviceService {
 
   private httpOptions={
     headers: new HttpHeaders
-     ({'content-type':'application/json',
-     token: localStorage.getItem("token")})
+     ({'content-type':'application/json'}
+     )
     };
   constructor(private httpService:HttpService) { }
   usersRegister(users:RegisterModel):Observable<any>

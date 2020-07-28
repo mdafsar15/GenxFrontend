@@ -19,7 +19,7 @@ export class DashboardAdmin implements OnInit {
   displaytoken: string;
   products :RegisterModel[];
   token: string = "";
-  private getApiUrl = 'http://localhost:8080/api/user';
+  private getApiUrl = 'http://localhost:8080/api/test/getAllNotes';
 
   constructor(private snackBar: MatSnackBar,private formBuilder:FormBuilder,
     private myservice:UserserviceService,private router:Router,

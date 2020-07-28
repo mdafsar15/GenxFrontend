@@ -1,3 +1,4 @@
+import { TokenInterceptorService } from './interceptor/token-interceptor.service';
  import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
@@ -7,7 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MaterialModule } from "./material/material.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoginWithAdmin } from "../app/containers/user-authentication/loginwithadmin/login.component";
 import { RegisterComponent } from "../app/containers/user-authentication/register/register.component";
 import { PasswordUpdateComponent } from "./containers/user-authentication/password-update/password-update.component";
@@ -23,9 +24,9 @@ import { DatePipe } from '@angular/common';
 import { MatDatepickerModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { AuthService } from './services/auth.service';
 import { Headers, Http, HttpModule } from '@angular/http'; 
-
-
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { Headers, Http, HttpModule } from '@angular/http';
     DashboardComponent,
     LoginWithUser,
     DashboardUser,
-    DashboardAdmin
+    DashboardAdmin,
+    
    
   ],
   imports: [
@@ -55,10 +57,19 @@ import { Headers, Http, HttpModule } from '@angular/http';
     HttpModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatRadioModule
+    
   ],
   entryComponents: [],
-  providers: [DatePipe,AuthService],
+  providers: [DatePipe,authInterceptorProviders,
+    AuthService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

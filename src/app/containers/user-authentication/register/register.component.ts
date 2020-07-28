@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
    salary=new FormControl(null,[Validators.required]);
    age=new FormControl(null,[Validators.required]);
    role=new FormControl(null,[Validators.required]);
+   mobile=new FormControl(null,[Validators.required]);
   person=String;
 
   getNameErrorMessage(){
@@ -56,10 +57,12 @@ export class RegisterComponent implements OnInit {
      this.user.salary = this.salary.value;
      this.user.age = this.age.value;
      this.user.role = [this.role.value];
+     this.user.mobile = this.mobile.value;
+     
      this.myservice.usersRegister(this.user).subscribe(
       (response:any) =>{
         this.snackBar.open(" check mail to verify", "succesfull", {duration:5000})
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/loginUser"]);
      },
      (error:any)=> {
        this.snackBar.open("failed register", "failed", {duration:5000})

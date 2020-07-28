@@ -5,5 +5,6 @@ export class RegisterModel {
     password:String;
     salary:number;
     age:number;
-    role: any[]
+    role: any[];
+    mobile: String;
 }

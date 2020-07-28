@@ -1,6 +1,6 @@
 <div class="limiter">
     <div class ="container-login100" fxLayout="row"  fxLayoutAlign="center center">
-    <mat-card fxLayout="column" fxLayoutAlign="center center" class="example-card">
+    <mat-card fxLayout="column" fxLayoutAlign="center center" class="example-card" style="margin-top: 0px;">
         <mat-card-header>
             <mat-card-title>
                <h2> Register </h2>
@@ -30,6 +30,13 @@
                                     <mat-icon matSuffix>email</mat-icon>
                                     <!-- <mat-error *ngIf="email.invalid ">{{getGmailErrorMessage()}}</mat-error> -->
                             </mat-form-field>
+
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Mobile Number" type="Text" [formControl]="mobile"
+                                    [(ngModel)]="user.mobile">
+                                    <mat-icon matSuffix>Mobile</mat-icon>
+                                    <!-- <mat-error *ngIf="age.invalid ">{{getMobileNumErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
                      
     
                  
@@ -55,13 +62,18 @@
                                     <mat-icon matSuffix>Age</mat-icon>
                                     <!-- <mat-error *ngIf="age.invalid ">{{getMobileNumErrorMessage()}}</mat-error> -->
                             </mat-form-field>
-
+<!-- 
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Role" type="Text" [formControl]="role"
-                                    [(ngModel)]="user.role">
-                                    <mat-icon matSuffix>Role</mat-icon>
+                                <input matInput placeholder="Role" type="Text" [formControl]="role" [(ngModel)]="user.role">
+                                    <mat-icon matSuffix>Role</mat-icon> -->
                                     <!-- <mat-error *ngIf="role.invalid ">{{getMobileNumErrorMessage()}}</mat-error> -->
-                            </mat-form-field>
+                            <!-- </mat-form-field> -->
+
+                            <mat-radio-group aria-label="Select an option" [formControl]="role">
+                                <mat-radio-button value="admin">Admin</mat-radio-button>
+                                <mat-radio-button value="user">User</mat-radio-button>
+                                <mat-radio-button value="other">Other</mat-radio-button>
+                              </mat-radio-group>
                      
                     <div class="example-button-row">
                         <button mat-raised-button color="accent" type="submit" (click)="onSubmit()"> Register</button>

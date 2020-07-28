@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="login" >
   <div>Welcome To User
   </div>
@@ -32,10 +32,67 @@
 <ul>
   
 </ul>
-
-
-
 </mat-card-actions>
 
+</div> -->
 
+<!-- <h1>Home</h1>
+<p>You're logged in with Angular 7 & JWT!!</p>
+<p>Your role is: <strong>User</strong>.</p>
+<p>This page can be accessed by all authenticated users.</p>
+<div>
+    Current user from secure api end point:
+    <ul>
+        <li *ngIf="products">{{products.name}} {{products.username}}</li>
+    </ul>
 </div>
+
+<br>
+
+    <div class="signout-button"><br>
+      <button (click)="logout()" mat-stroked-button color="primary" >Signout</button>
+    </div> -->
+
+    <div id="app">
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Genx</a>
+        <ul class="navbar-nav mr-auto" routerLinkActive="active">
+          <li class="nav-item">
+            <a  class="nav-link" routerLink="/home">Home </a>
+          </li>
+          <li class="nav-item" *ngIf="showAdminBoard">
+            <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+          </li>
+          <li class="nav-item" *ngIf="showModeratorBoard">
+            <a href="/mod" class="nav-link" routerLink="mod">Other Board</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" *ngIf="isLoggedIn" routerLink="/dashboarduser">User</a>
+          </li>
+        </ul>
+    
+        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a  href class="nav-link" (click)="logout()">LogOut</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a  class="nav-link" routerLink="/loginUser">Login</a>
+          </li> -->
+        </ul>
+        
+    
+        <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+          </li>
+          <li class="nav-item">
+            <a href class="nav-link" (click)="logout()">LogOut</a>
+          </li>
+        </ul>
+      </nav>
+    
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    
